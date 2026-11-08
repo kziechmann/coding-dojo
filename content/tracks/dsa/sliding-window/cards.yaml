@@ -1,0 +1,35 @@
+- id: shapes
+  skill: dsa.sliding-window
+  kind: recall
+  front: What are the two shapes of sliding window, and how does each update?
+  back: Fixed size - add the entering element and remove the leaving one each step. Variable size - always grow right; shrink left while the window is invalid.
+
+- id: why-linear
+  skill: dsa.sliding-window
+  kind: complexity
+  front: The variable window has a while loop inside a for loop. Why is it still O(n)?
+  back: Both pointers only move forward and left never passes right, so left moves at most n times in total across the whole run.
+
+- id: trace-abcabcbb
+  skill: dsa.sliding-window
+  kind: predict
+  front: Longest substring without repeating characters in "abcabcbb" - the answer, and at which right index is it first reached?
+  back: 3 ("abc"), first reached at right = 2.
+
+- id: last-seen-jump
+  skill: dsa.sliding-window
+  kind: spot-the-bug
+  front: "With a last-seen map, code sets left = lastSeen[c] + 1 on a repeat. On \"abba\" it returns 3. What's the bug?"
+  back: left must never move backwards - use left = max(left, lastSeen[c] + 1). At the final 'a', lastSeen is 0, which would pull left back to 1.
+
+- id: monotonic
+  skill: dsa.sliding-window
+  kind: design
+  front: When does a sliding window fail, and what do you use instead for "subarray sums to k" with negative numbers?
+  back: When validity isn't monotonic (shrinking a valid window can make it invalid). Use prefix sums with a hash map of seen prefix sums.
+
+- id: fixed-update
+  skill: dsa.sliding-window
+  kind: recall
+  front: Write the O(1) update for a fixed-size-k window sum at index right.
+  back: sum += nums[right]; if right >= k then sum -= nums[right - k].

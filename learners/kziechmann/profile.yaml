@@ -1,0 +1,92 @@
+id: kziechmann
+name: Kevin Ziechmann
+headline: Frontend-leaning full-stack engineer, about 7 years in production software; Software Engineer II at Microsoft (MSN and Copilot)
+location: Vancouver, BC
+
+summary: >
+  Came to software after a first career in documentary-style video production. Now builds MSN and
+  Copilot experiences at Microsoft, and is moving toward AI/ML engineering and creative tools, where
+  media production and software meet.
+
+experience:
+  - role: Software Engineer II
+    company: Microsoft
+    years: 2021-present
+    notes: >
+      Sports and Community teams, working across MSN, Bing, Edge, Windows and Copilot experiences.
+      On-call incident owner; mentors interns and new hires.
+  - role: Software Engineer
+    company: IHS Markit Digital
+    years: 2019-2021
+    notes: Financial web applications.
+  - role: Full-stack software engineering immersive
+    company: Galvanize
+    years: 2018-2019
+  - role: Videographer, editor and cinematographer
+    company: Editorial and commercial adventure-sports work
+    notes: After a B.A. in Journalism from UNC Chapel Hill.
+
+skills:
+  languages_and_frameworks: [JavaScript (ES6+), TypeScript, React, Redux, Next.js/SSR, Node.js, HTML/CSS]
+  practice:
+    - REST APIs
+    - Performance optimization (Core Web Vitals)
+    - Accessibility (WCAG)
+    - Telemetry and monitoring
+    - Live-site incident response
+    - Experimentation and testing
+  tooling: [Azure DevOps, GitHub Copilot and agent-assisted development, MCP-based automation]
+
+achievements:
+  - Built generative AI pipelines delivering sports news coverage, including the 2026 FIFA World Cup.
+  - Integrated MSN Sports with Copilot through dashboards across five sports, later adopted by other teams.
+  - Cut Copilot dashboard LCP by about 40% and layout shift (CLS) from 0.5 to 0.1.
+  - Fixed 50+ accessibility bugs.
+
+personal_projects:
+  - Geotagged-photo apps.
+  - An IPFS-based distributed media platform.
+
+strengths:
+  - Production frontend at scale
+  - Performance and accessibility rigor
+  - Owning features end to end
+  - Applying AI tools in daily engineering work
+
+learning_goals:
+  - "AI systems engineering: LLM pipelines, evaluation and orchestration"
+  - "Deeper backend and full-stack work: services, data and workflow systems"
+  - "Media and video technology, such as rendering and formats"
+  - "Experimentation and analytics for measuring product impact"
+
+exercise_language: typescript
+
+# Weighted toward the stated goals. media-engineering and experimentation have
+# no playable modules yet; ask the tutor to /author-module the first ones.
+tracks:
+  ai-engineering: 35
+  system-design: 30
+  media-engineering: 10
+  experimentation: 10
+  dsa: 10
+  craft: 5
+
+schedule:
+  weekday_minutes: 45
+  weekend_minutes: 90
+
+interview:
+  active: false
+  target_date: null
+  target_roles: []
+
+tutor:
+  notes: >
+    Build on production frontend experience: tie latency, caching and SLO topics to Core Web Vitals,
+    telemetry and on-call incident work he already knows. He has shipped generative AI pipelines for
+    sports news, so use sports and news examples in the AI track and push hard on evaluation and
+    validation (how would you prove the World Cup summaries never invented a score?). He uses AI
+    tools daily, so in AI-assisted rounds focus on specs and verification rather than tool basics.
+    Media background: video and production analogies are welcome where they genuinely clarify
+    (pipelines, render queues, formats). Prefers TypeScript; introduce Python only when an AI
+    ecosystem requires it. Backend and distributed-systems depth is the main gap to close.

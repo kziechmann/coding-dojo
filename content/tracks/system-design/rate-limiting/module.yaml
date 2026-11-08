@@ -1,0 +1,39 @@
+id: rate-limiting
+track: system-design
+order: 2
+title: Rate limiting
+summary: Protect services from overload and abuse with token buckets and sliding windows, and know which one to reach for.
+level: intermediate
+minutes: 75
+prerequisites: [estimation]
+objectives:
+  - Implement a token bucket that allows bursts but enforces a steady average rate.
+  - Implement fixed-window and sliding-window-counter limiters, and explain the boundary-burst problem.
+  - Choose where limits live (client, gateway, service) and what key they use (user, API key, IP).
+  - Describe how a limiter works across many servers and what consistency it gives up.
+skills:
+  - id: sd.rate-limiting.token-bucket
+    title: Token bucket
+    interview_weight: 0.8
+  - id: sd.rate-limiting.windows
+    title: Window-based limiters
+    interview_weight: 0.7
+  - id: sd.rate-limiting.distributed
+    title: Distributed rate limiting
+    interview_weight: 0.7
+exercises:
+  - id: token-bucket
+    title: Token bucket
+    kind: code
+    difficulty: medium
+    minutes: 25
+    skills: [sd.rate-limiting.token-bucket]
+  - id: sliding-window
+    title: Fixed window and sliding window counter
+    kind: code
+    difficulty: medium
+    minutes: 30
+    skills: [sd.rate-limiting.windows]
+links:
+  - title: IETF draft, RateLimit header fields for HTTP
+    url: https://datatracker.ietf.org/doc/draft-ietf-httpapi-ratelimit-headers/

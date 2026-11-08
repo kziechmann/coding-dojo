@@ -1,0 +1,16 @@
+# Which learner profile the CLI and the tutor use (a folder under learners/).
+# Override for one shell with: DOJO_LEARNER=<id> ./dojo today
+learner: kziechmann
+
+# Where exercise tests run:
+#   local  - a local Node process with a timeout (fine inside Claude Code's sandbox)
+#   auto   - Docker when the daemon is reachable, otherwise local
+#   docker - always Docker: no network, read-only filesystem, CPU/memory/pid limits
+# Preview the Docker command with: ./dojo test <exercise> --dry-run
+sandbox: local
+docker_image: node:24-alpine
+# Set to "runsc" after installing gVisor for a stronger sandbox.
+docker_runtime: ""
+
+# Seconds before a test run is killed.
+test_timeout_seconds: 60

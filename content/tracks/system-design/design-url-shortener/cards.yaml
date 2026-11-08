@@ -1,0 +1,35 @@
+- id: structure
+  skill: sd.design.process
+  kind: recall
+  front: Name the six steps of a 45-minute design interview, in order.
+  back: Requirements, estimates, API and data model, high-level design, deep dives, wrap-up (bottlenecks and failure modes).
+
+- id: code-space
+  skill: sd.design.url-shortener
+  kind: predict
+  front: How many 7-character base62 codes exist, roughly? Enough for 100M links a month for 5 years?
+  back: 62^7 ≈ 3.5 trillion. 5 years at 100M/month is 6 billion, so yes, easily.
+
+- id: counter-vs-random
+  skill: sd.design.url-shortener
+  kind: compare
+  front: Counter + base62 vs. random codes - one advantage and one drawback each.
+  back: Counter - no collisions and shortest codes, but predictable (enumerable) and needs coordination (use ranges per server). Random - unguessable and coordination-free, but collisions must be checked on insert.
+
+- id: redirect-status
+  skill: sd.design.url-shortener
+  kind: compare
+  front: 301 or 302 for redirects, and what does each cost you?
+  back: 301 is cached by browsers - less load, but you lose per-click analytics. 302 sends every click through you - full analytics, more load.
+
+- id: analytics-path
+  skill: sd.design.url-shortener
+  kind: design
+  front: How do you record click analytics without slowing redirects?
+  back: Return the redirect immediately and emit a click event asynchronously (queue or log stream); aggregate offline or in a stream processor.
+
+- id: wrap-up
+  skill: sd.design.process
+  kind: recall
+  front: What belongs in the last five minutes of a design interview?
+  back: Bottlenecks, failure modes and mitigations, what you'd monitor, and what you'd build next with more time.

@@ -1,0 +1,100 @@
+# Every track the Dojo knows about. Modules with a folder under content/tracks/<track>/
+# are playable; "planned" modules are outlines the tutor can turn into real modules
+# with /author-module. Learners pick their mix with `tracks:` weights in their profile.
+tracks:
+  - id: system-design
+    title: System design
+    summary: >-
+      The parts of backend systems that interviews and production both test, built for real:
+      estimation, rate limiting, caching, partitioning and reliability, then classic end-to-end designs.
+    planned:
+      - { id: api-design, title: "API design: resources, pagination, versioning, errors" }
+      - { id: databases, title: "SQL vs. NoSQL, indexes, transactions and isolation levels" }
+      - { id: replication-partitioning, title: "Replication, partitioning and rebalancing" }
+      - { id: queues-and-workflows, title: "Queues, streams and durable workflow engines" }
+      - { id: consistency-consensus, title: "Consistency models and consensus (Raft)" }
+      - { id: observability, title: "Observability, SLOs and incident response" }
+      - { id: design-news-feed, title: "Design: news feed" }
+      - { id: design-chat, title: "Design: chat and presence" }
+      - { id: design-notifications, title: "Design: notification system" }
+      - { id: design-video-platform, title: "Design: video upload, transcoding and streaming" }
+      - { id: design-llm-gateway, title: "Design: an LLM gateway with quotas, caching and fallbacks" }
+
+  - id: ai-engineering
+    title: AI engineering
+    summary: >-
+      Build reliable LLM systems: context budgets, structured output, agent loops, retrieval and evals.
+      Exercises run offline against scripted models, so no API key is needed.
+    planned:
+      - { id: mcp-server, title: "Build an MCP server and client" }
+      - { id: claude-agent-sdk, title: "Agents with the Claude Agent SDK: tools, subagents, hooks" }
+      - { id: embeddings-hybrid-search, title: "Embeddings, hybrid search and reranking" }
+      - { id: llm-pipelines, title: "Batch LLM pipelines: generate, validate, review, publish" }
+      - { id: llm-observability, title: "Tracing, cost and latency for LLM apps" }
+      - { id: prompt-injection, title: "Prompt injection and tool sandboxing" }
+      - { id: llm-as-judge, title: "Model-graded evals and judge calibration" }
+      - { id: working-with-coding-agents, title: "Working with coding agents: specs, review, verification" }
+
+  - id: dsa
+    title: Data structures and algorithms
+    summary: Interview patterns, each with a timed exercise and an O(n) check that fails slow solutions.
+    planned:
+      - { id: two-pointers, title: "Two pointers" }
+      - { id: stacks, title: "Stacks and monotonic stacks" }
+      - { id: binary-search, title: "Binary search, including on the answer" }
+      - { id: linked-lists, title: "Linked lists" }
+      - { id: trees, title: "Trees and BSTs" }
+      - { id: heaps, title: "Heaps and top-k" }
+      - { id: intervals, title: "Intervals" }
+      - { id: graphs, title: "Graphs: BFS, DFS, topological sort, union-find, Dijkstra" }
+      - { id: dynamic-programming, title: "Dynamic programming, 1D and 2D" }
+      - { id: backtracking, title: "Backtracking" }
+
+  - id: craft
+    title: Engineering craft
+    summary: The everyday skills behind senior work.
+    planned:
+      - { id: testing-strategies, title: "Testing: unit, integration, property-based" }
+      - { id: typescript-types, title: "TypeScript's type system in depth" }
+      - { id: async-concurrency, title: "Async, the event loop and concurrency limits" }
+      - { id: postgres-deep-dive, title: "Postgres: EXPLAIN, indexes, locks" }
+      - { id: debugging-profiling, title: "Debugging and profiling" }
+      - { id: networking, title: "Networking: TCP, TLS, HTTP, DNS" }
+      - { id: security-basics, title: "Security basics: OWASP Top 10, authn and authz" }
+
+  - id: build-your-own
+    title: Build your own
+    summary: Rebuild well-known systems from scratch, one passing test stage at a time.
+    planned:
+      - { id: http-server, title: "HTTP server from raw sockets" }
+      - { id: redis-clone, title: "Redis clone: protocol, expiry, persistence" }
+      - { id: git-internals, title: "Git internals: objects, trees, commits" }
+      - { id: kv-store-wal, title: "Key-value store with a write-ahead log" }
+      - { id: job-queue, title: "Job queue with retries and visibility timeouts" }
+
+  - id: media-engineering
+    title: Media engineering
+    summary: How images and video work under the hood, from codecs to streaming to rendering.
+    planned:
+      - { id: codecs-containers, title: "Codecs, containers and bitrates" }
+      - { id: adaptive-streaming, title: "Adaptive streaming: HLS and DASH" }
+      - { id: ffmpeg-pipelines, title: "FFmpeg pipelines and transcoding at scale" }
+      - { id: image-formats, title: "Image formats, responsive images and Core Web Vitals" }
+      - { id: gpu-rendering, title: "Canvas, WebGL and WebGPU rendering basics" }
+
+  - id: experimentation
+    title: Experimentation and analytics
+    summary: Measure product impact without fooling yourself.
+    planned:
+      - { id: ab-test-design, title: "A/B test design: power and sample size" }
+      - { id: metrics-guardrails, title: "Choosing metrics and guardrails" }
+      - { id: peeking-pitfalls, title: "Peeking, sequential testing and other pitfalls" }
+      - { id: event-pipelines, title: "Event pipelines and data quality" }
+
+  - id: interview-readiness
+    title: Interview readiness
+    summary: Stories, project deep dives and full mock loops.
+    planned:
+      - { id: story-bank, title: "Story bank: eight stories in STAR form" }
+      - { id: project-deep-dives, title: "Project deep dives" }
+      - { id: questions-to-ask, title: "Questions to ask and company research" }

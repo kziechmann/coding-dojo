@@ -1,0 +1,34 @@
+id: sliding-window
+track: dsa
+order: 3
+title: Sliding window
+summary: Solve contiguous-subarray and substring problems in one pass by growing and shrinking a window instead of re-scanning.
+level: intermediate
+minutes: 50
+prerequisites: [arrays-hashing]
+objectives:
+  - Recognize fixed-size and variable-size window problems.
+  - Maintain window state (a sum, counts, last-seen positions) in O(1) per step.
+  - State the invariant that tells you when to shrink, and prove the O(n) bound.
+skills:
+  - id: dsa.sliding-window
+    title: Sliding window
+    interview_weight: 0.9
+exercises:
+  - id: max-sum-window
+    title: Maximum sum of k consecutive numbers
+    kind: code
+    difficulty: easy
+    minutes: 15
+    skills: [dsa.sliding-window]
+  - id: longest-unique-substring
+    title: Longest substring without repeating characters
+    kind: code
+    difficulty: medium
+    minutes: 25
+    skills: [dsa.sliding-window]
+links:
+  - title: LeetCode 3, Longest Substring Without Repeating Characters
+    url: https://leetcode.com/problems/longest-substring-without-repeating-characters/
+  - title: LeetCode 76, Minimum Window Substring (harder follow-up)
+    url: https://leetcode.com/problems/minimum-window-substring/

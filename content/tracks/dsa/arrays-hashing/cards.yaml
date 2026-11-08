@@ -1,0 +1,35 @@
+- id: when-hash
+  skill: dsa.hashing
+  kind: recall
+  front: Name three problem phrasings that suggest a hash map or set.
+  back: Find a pair or complement; have we seen this before; group equivalent items; count how many times.
+
+- id: anagram-key
+  skill: dsa.hashing
+  kind: compare
+  front: Two canonical keys for grouping anagrams, with their cost per word of length k?
+  back: Sorted letters, O(k log k); a 26-letter count signature, O(k).
+
+- id: array-key-bug
+  skill: dsa.hashing
+  kind: spot-the-bug
+  front: "const groups = new Map(); groups.set([1,2], 'a'); groups.get([1,2]) returns undefined. Why?"
+  back: Arrays are compared by reference, so the second [1,2] is a different key. Use a string key such as '1,2'.
+
+- id: topk-options
+  skill: dsa.counting
+  kind: complexity
+  front: After counting n items into u distinct values, give three ways to get the top k and their costs.
+  back: Sort by count O(u log u); a min-heap of size k O(u log k); bucket sort by count O(n).
+
+- id: bucket-bound
+  skill: dsa.counting
+  kind: predict
+  front: In bucket sort for top-k-frequent, why does an array of n + 1 buckets always suffice?
+  back: No item can appear more than n times, so every count fits at an index from 1 to n.
+
+- id: two-sum
+  skill: dsa.hashing
+  kind: complexity
+  front: Two sum with a hash map - time and space, and what does the map store?
+  back: O(n) time, O(n) space. It maps each value seen so far to its index, so each element checks for target - value in O(1).

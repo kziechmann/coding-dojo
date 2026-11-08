@@ -1,0 +1,30 @@
+id: evals
+track: ai-engineering
+order: 5
+title: Evals
+summary: Measure an LLM system like any other system - a labelled case set, graders, a pass rate with a confidence interval, and regression checks between versions.
+level: intermediate
+minutes: 70
+prerequisites: [structured-output]
+objectives:
+  - Build an eval harness that runs cases with bounded concurrency and survives failures.
+  - Choose graders - exact match, rules, model-graded - and know the weaknesses of each.
+  - Report a pass rate with a confidence interval and per-tag breakdowns.
+  - Compare two runs, name regressions case by case, and judge whether a difference is real.
+skills:
+  - id: ai.evals.harness
+    title: Eval harness design
+    interview_weight: 0.9
+  - id: ai.evals.statistics
+    title: Reading eval results
+    interview_weight: 0.6
+exercises:
+  - id: eval-harness
+    title: Eval harness with regression checks
+    kind: code
+    difficulty: medium
+    minutes: 40
+    skills: [ai.evals.harness, ai.evals.statistics]
+links:
+  - title: Anthropic docs, define success criteria and build evaluations
+    url: https://platform.claude.com/docs/en/test-and-evaluate/develop-tests

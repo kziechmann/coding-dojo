@@ -1,0 +1,41 @@
+- id: bucket-burst
+  skill: sd.rate-limiting.token-bucket
+  kind: predict
+  front: A token bucket has capacity 10 and refills 5 tokens per second. It is full at t=0 and receives 14 requests at t=0. How many pass, and when can the next one pass?
+  back: 10 pass, 4 are rejected. The next token arrives at t=0.2 s.
+
+- id: bucket-params
+  skill: sd.rate-limiting.token-bucket
+  kind: recall
+  front: In a token bucket, what does the capacity control and what does the refill rate control?
+  back: Capacity is the largest burst allowed at once. The refill rate is the long-run average rate.
+
+- id: fixed-window-flaw
+  skill: sd.rate-limiting.windows
+  kind: spot-the-bug
+  front: A fixed window allows 100 requests per minute. Why can a client get 200 requests through in two seconds?
+  back: 100 at the end of one window and 100 at the start of the next both pass, because each window counts separately.
+
+- id: sliding-counter-formula
+  skill: sd.rate-limiting.windows
+  kind: recall
+  front: Write the sliding window counter estimate.
+  back: estimate = previous_count × (window − elapsed_in_current) / window + current_count. Allow if estimate + 1 ≤ limit.
+
+- id: distributed-overshoot
+  skill: sd.rate-limiting.distributed
+  kind: design
+  front: You run 20 API servers, each with its own in-memory limiter set to 100 req/min per user. What can go wrong, and name two fixes.
+  back: A user spread across servers gets up to 2,000 req/min. Fixes - a shared store like Redis with atomic increments, sticky routing by user, or local limits with periodic sync and accepted overshoot.
+
+- id: fail-open
+  skill: sd.rate-limiting.distributed
+  kind: design
+  front: Your rate limiter's Redis cluster goes down. Fail open or fail closed?
+  back: Usually fail open (allow traffic) and alert, so the limiter doesn't become an outage. Fail closed only where abuse is worse than downtime, e.g. login or payment endpoints.
+
+- id: retry-after
+  skill: sd.rate-limiting.token-bucket
+  kind: recall
+  front: What should a rate-limited HTTP response include?
+  back: Status 429 Too Many Requests plus a Retry-After header (and ideally RateLimit headers showing the limit and remaining quota).

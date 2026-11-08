@@ -1,0 +1,35 @@
+- id: seconds-per-day
+  skill: sd.estimation
+  kind: recall
+  front: How many seconds are in a day, and what round number do you use for mental math?
+  back: 86,400. Round to 100,000 (10^5) and say you rounded.
+
+- id: qps-100m
+  skill: sd.estimation
+  kind: predict
+  front: A service handles 100 million requests a day. What is the average requests per second? And at a 3x peak?
+  back: About 1,200/s average (100M / 86,400 ≈ 1,157), about 3,500/s at peak.
+
+- id: storage-formula
+  skill: sd.estimation
+  kind: recall
+  front: Write the storage estimate formula.
+  back: writes per day × bytes per write × days retained × replication factor.
+
+- id: latency-ladder
+  skill: sd.latency-intuition
+  kind: compare
+  front: Put rough numbers on a main-memory read, an SSD random read, a same-datacenter round trip and a cross-continent round trip.
+  back: About 100 ns, 100 µs, 0.5 ms and 50-150 ms. Each step is roughly 100-1,000x the one before.
+
+- id: bits-bytes
+  skill: sd.latency-intuition
+  kind: predict
+  front: You need 1 GB/s of egress. How many 10 Gbps links do you need if you keep each link at 50% utilization?
+  back: 1 GB/s = 8 Gbps. Each link carries 5 Gbps at 50%, so 2 links.
+
+- id: read-heavy-levers
+  skill: sd.estimation
+  kind: design
+  front: Your estimate shows a 100:1 read-to-write ratio. Which two design levers come first, and why?
+  back: Caching (a CDN for static content, an in-memory cache for hot data) and read replicas. Writes are small enough to stay on one primary for now.

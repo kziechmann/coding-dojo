@@ -1,0 +1,29 @@
+id: llm-fundamentals
+track: ai-engineering
+order: 1
+title: LLM fundamentals for engineers
+summary: Tokens, context windows, cost, latency and prompt caching, and how to pack a context window on a budget.
+level: intro
+minutes: 50
+prerequisites: []
+objectives:
+  - Estimate tokens, cost and latency for a request before sending it.
+  - Explain what prompt caching needs (a stable prefix) and how to order a prompt to get it.
+  - Decide what goes into a context window when it doesn't all fit, and defend the order.
+skills:
+  - id: ai.context-management
+    title: Context window management
+    interview_weight: 0.7
+  - id: ai.cost-latency
+    title: Tokens, cost and latency
+    interview_weight: 0.6
+exercises:
+  - id: context-packer
+    title: Context packer
+    kind: code
+    difficulty: medium
+    minutes: 30
+    skills: [ai.context-management]
+links:
+  - title: Anthropic docs, prompt caching
+    url: https://platform.claude.com/docs/en/build-with-claude/prompt-caching

@@ -1,0 +1,41 @@
+id: retrieval
+track: ai-engineering
+order: 4
+title: Retrieval (RAG) fundamentals
+summary: Chunk documents, rank them with BM25, and measure retrieval quality with recall@k before reaching for embeddings.
+level: intermediate
+minutes: 70
+prerequisites: [llm-fundamentals]
+objectives:
+  - Chunk documents with overlap and explain how chunk size trades precision for context.
+  - Implement BM25 ranking and explain its term-frequency saturation and length normalization.
+  - Measure retrieval with recall@k on a labelled query set.
+  - Explain when keyword search, embeddings, hybrid search and reranking each help.
+skills:
+  - id: ai.retrieval.chunking
+    title: Chunking
+    interview_weight: 0.6
+  - id: ai.retrieval.ranking
+    title: Ranking and hybrid search
+    interview_weight: 0.7
+  - id: ai.retrieval.evaluation
+    title: Measuring retrieval quality
+    interview_weight: 0.6
+exercises:
+  - id: chunk-text
+    title: Chunk text with overlap
+    kind: code
+    difficulty: easy
+    minutes: 15
+    skills: [ai.retrieval.chunking]
+  - id: bm25-search
+    title: BM25 search and recall@k
+    kind: code
+    difficulty: medium
+    minutes: 35
+    skills: [ai.retrieval.ranking, ai.retrieval.evaluation]
+links:
+  - title: Okapi BM25 (Wikipedia)
+    url: https://en.wikipedia.org/wiki/Okapi_BM25
+  - title: Anthropic, Introducing contextual retrieval
+    url: https://www.anthropic.com/news/contextual-retrieval

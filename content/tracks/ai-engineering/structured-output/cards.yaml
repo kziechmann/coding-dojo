@@ -1,0 +1,35 @@
+- id: three-approaches
+  skill: ai.structured-output
+  kind: compare
+  front: Name three ways to get structured output from a model and the main limit they share.
+  back: Prompt-only JSON, schema-constrained decoding, and tool calls with strict schemas. Even guaranteed-valid syntax doesn't guarantee correct meaning - validate semantics yourself.
+
+- id: repair-loop
+  skill: ai.structured-output
+  kind: recall
+  front: What three messages make up one round of a repair loop?
+  back: The original user prompt, the model's bad reply as an assistant turn, then a user message listing the exact validation errors and asking for corrected JSON only.
+
+- id: blind-retry
+  skill: ai.structured-output
+  kind: spot-the-bug
+  front: An extraction job retries up to 10 times on invalid JSON by resending the same prompt. Two problems?
+  back: The model gets no feedback, so it tends to repeat the mistake; and 10 attempts multiplies cost and latency. Feed errors back and cap at 2-3 attempts.
+
+- id: semantic-validation
+  skill: ai.structured-output
+  kind: design
+  front: Schema-constrained output is on. Give two checks you still need for a generated sports match summary.
+  back: Every number in the summary matches the source data (no invented scores), and referenced entities (teams, players) exist in the feed. Also length and tone limits if they matter.
+
+- id: untrusted
+  skill: ai.structured-output
+  kind: recall
+  front: Why treat model output as untrusted input?
+  back: It can echo anything in its inputs, including attacker-planted instructions or payloads. Validate it, escape it before rendering, and never splice it into SQL or shell commands.
+
+- id: collect-all-errors
+  skill: ai.structured-output
+  kind: design
+  front: Why should a validator for a repair loop return all errors with paths, not just the first?
+  back: The model can fix everything in one retry instead of one problem per attempt, and paths like scores[2].home tell it exactly where to look.

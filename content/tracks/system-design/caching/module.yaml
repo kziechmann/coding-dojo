@@ -1,0 +1,39 @@
+id: caching
+track: system-design
+order: 3
+title: Caching
+summary: Make reads fast and cheap with an LRU cache, TTLs and request coalescing, and know how caches go wrong.
+level: intermediate
+minutes: 80
+prerequisites: [estimation]
+objectives:
+  - Implement an LRU cache with per-entry TTLs and O(1) operations.
+  - Prevent cache stampedes by coalescing concurrent loads for the same key.
+  - Compare cache-aside, read-through, write-through and write-behind, and pick one for a given workload.
+  - Explain invalidation strategies and the consistency each one gives.
+skills:
+  - id: sd.caching.eviction
+    title: Eviction and TTLs
+    interview_weight: 0.7
+  - id: sd.caching.stampede
+    title: Stampede protection
+    interview_weight: 0.6
+  - id: sd.caching.patterns
+    title: Caching patterns and invalidation
+    interview_weight: 0.8
+exercises:
+  - id: lru-ttl-cache
+    title: LRU cache with TTLs
+    kind: code
+    difficulty: medium
+    minutes: 30
+    skills: [sd.caching.eviction]
+  - id: single-flight
+    title: Single flight and a cache-aside loader
+    kind: code
+    difficulty: medium
+    minutes: 30
+    skills: [sd.caching.stampede, sd.caching.patterns]
+links:
+  - title: LeetCode 146, LRU Cache
+    url: https://leetcode.com/problems/lru-cache/

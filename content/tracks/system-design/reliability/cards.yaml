@@ -1,0 +1,41 @@
+- id: retryable
+  skill: sd.reliability.retries
+  kind: recall
+  front: Which failures are worth retrying, and which aren't?
+  back: Retry timeouts, connection errors, 429, 502, 503 and 504. Don't retry 400, 401, 403, 404 or 422 - the request itself is wrong.
+
+- id: backoff-sequence
+  skill: sd.reliability.retries
+  kind: predict
+  front: Base 100 ms, cap 2,000 ms, no jitter. Waits before attempts 2, 3, 4 and 7?
+  back: 100, 200, 400 and 2,000 ms (attempt 7 would be 3,200, capped).
+
+- id: why-jitter
+  skill: sd.reliability.retries
+  kind: recall
+  front: Why add jitter to exponential backoff?
+  back: Without it, clients that failed together retry together in synchronized waves. Jitter spreads retries out so the recovering service sees smooth load.
+
+- id: idempotent-def
+  skill: sd.reliability.idempotency
+  kind: recall
+  front: What makes an operation idempotent? Give one naturally idempotent and one non-idempotent example.
+  back: Doing it twice has the same effect as doing it once. PUT /users/1 with a full body is idempotent; POST /payments is not.
+
+- id: key-conflict
+  skill: sd.reliability.idempotency
+  kind: design
+  front: A request arrives with an idempotency key you've seen before, but a different body. What do you return and why?
+  back: An error (422). The client reused a key for a different operation, which is a bug; silently returning the old response would hide it.
+
+- id: dont-store-5xx
+  skill: sd.reliability.idempotency
+  kind: spot-the-bug
+  front: An idempotency layer stores every response, including 500s. What goes wrong?
+  back: A transient server error gets replayed forever for that key, so the client's retries can never succeed. Store 2xx and 4xx; let 5xx and crashes be retried.
+
+- id: at-least-once
+  skill: sd.reliability.idempotency
+  kind: design
+  front: A queue consumer sends a welcome email per message. After a deploy, some users get two emails. Why, and what's the fix?
+  back: Queues deliver at least once, so a message was redelivered after a crash or timeout. Make the consumer idempotent - record sent message ids (or user + email type) and skip repeats.

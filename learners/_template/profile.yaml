@@ -1,0 +1,64 @@
+# Learner profile. Copy this folder to learners/<your-id>/, fill it in, and set
+# `learner: <your-id>` in dojo.config.yaml. Or run /dojo-setup in Claude Code and
+# the tutor will interview you and write this file.
+#
+# The tutor reads this at the start of every session (via `./dojo context`), so
+# write what you'd tell a mentor on day one.
+
+id: your-id
+name: Your Name
+headline: One line - role, years of experience, where
+location: City, Region
+
+summary: >
+  A few sentences: how you got here, what you work on now, where you want to go.
+
+experience:
+  - role: Software Engineer
+    company: Example Co
+    years: 2022-present
+    notes: What you own, scale, on-call, mentoring.
+
+skills:
+  languages_and_frameworks: [TypeScript, React, Node.js]
+  practice: [REST APIs, testing]
+  tooling: [GitHub Actions]
+
+achievements:
+  - A concrete result with a number in it.
+
+personal_projects:
+  - Something you built for fun.
+
+strengths:
+  - What you're already good at, so lessons can build on it.
+
+learning_goals:
+  - What you want to be able to do in 6-12 months.
+
+# Language for code exercises. TypeScript is the only one with starter code today.
+exercise_language: typescript
+
+# Relative focus per track. Any positive numbers; they are normalized.
+# Tracks: system-design, ai-engineering, dsa, craft, build-your-own,
+# media-engineering, experimentation, interview-readiness
+tracks:
+  system-design: 35
+  ai-engineering: 35
+  dsa: 20
+  craft: 10
+
+schedule:
+  weekday_minutes: 45
+  weekend_minutes: 90
+
+interview:
+  active: false            # true shifts the planner toward interview tracks as the date nears
+  target_date: null        # YYYY-MM-DD
+  target_roles: []         # e.g. [Senior Software Engineer, AI Engineer]
+
+tutor:
+  notes: >
+    How you like to learn and what the tutor should lean on, e.g. "explain with
+    production analogies", "push me on complexity analysis", "I learn best by
+    predicting before running code".

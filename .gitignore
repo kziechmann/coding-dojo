@@ -1,0 +1,7 @@
+node_modules/
+*.log
+.DS_Store
+coverage/
+.tmp/
+# Learner data under learners/ IS committed on purpose, so progress survives
+# ephemeral cloud sessions. Keep your fork private if you don't want it public.

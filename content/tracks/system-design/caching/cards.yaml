@@ -1,0 +1,41 @@
+- id: lru-o1
+  skill: sd.caching.eviction
+  kind: recall
+  front: How do you get O(1) get and set for an LRU cache?
+  back: A hash map plus a doubly linked list ordered by recency. In JavaScript, a Map keeps insertion order, so delete-and-reinsert on access does the same job.
+
+- id: delete-not-update
+  skill: sd.caching.patterns
+  kind: design
+  front: In cache-aside, why delete the cache entry on write instead of updating it?
+  back: Two concurrent writers can update the cache in the wrong order and leave an older value cached. Deleting means the next read loads the current value.
+
+- id: stampede-count
+  skill: sd.caching.stampede
+  kind: predict
+  front: A hot key gets 2,000 reads/s and takes 50 ms to load. It expires. Roughly how many requests hit the database without stampede protection? With single flight?
+  back: About 100 without (all arrivals during the 50 ms load). Exactly 1 with single flight.
+
+- id: stampede-fixes
+  skill: sd.caching.stampede
+  kind: recall
+  front: Name three ways to prevent a cache stampede.
+  back: Coalesce concurrent loads (single flight / request coalescing), add random jitter to TTLs, and refresh hot keys before they expire.
+
+- id: penetration
+  skill: sd.caching.patterns
+  kind: spot-the-bug
+  front: Attackers request random product ids that don't exist, and the database melts even though the cache hit rate looked fine yesterday. What is happening and what's the fix?
+  back: Cache penetration - misses on non-existent keys always reach the database. Cache "not found" for a short TTL, or use a Bloom filter of existing ids.
+
+- id: write-patterns
+  skill: sd.caching.patterns
+  kind: compare
+  front: Write-through vs. write-behind - what does each trade?
+  back: Write-through writes cache and DB together - fresh reads, slower writes. Write-behind writes the cache now and flushes later - fast writes, risk of loss if the cache dies first.
+
+- id: hit-rate
+  skill: sd.caching.eviction
+  kind: predict
+  front: Hit rate goes from 90% to 99%. By how much does database read load drop?
+  back: 10x - from 10% of reads reaching the database to 1%.

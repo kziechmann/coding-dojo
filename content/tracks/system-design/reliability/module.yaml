@@ -1,0 +1,38 @@
+id: reliability
+track: system-design
+order: 5
+title: Retries, backoff and idempotency
+summary: Make calls between services safe to retry, so failures heal instead of turning into duplicate charges or retry storms.
+level: intermediate
+minutes: 70
+prerequisites: []
+objectives:
+  - Implement exponential backoff with full and equal jitter, and explain why jitter matters.
+  - Retry only errors that are safe and likely to succeed on a second try.
+  - Implement idempotency keys that make a POST safe to retry, including conflicting and concurrent repeats.
+  - Explain at-least-once delivery and why consumers of queues and workflows must be idempotent.
+skills:
+  - id: sd.reliability.retries
+    title: Retries and backoff
+    interview_weight: 0.6
+  - id: sd.reliability.idempotency
+    title: Idempotency
+    interview_weight: 0.8
+exercises:
+  - id: backoff-jitter
+    title: Backoff with jitter and a retry helper
+    kind: code
+    difficulty: easy
+    minutes: 20
+    skills: [sd.reliability.retries]
+  - id: idempotency-keys
+    title: Idempotency keys
+    kind: code
+    difficulty: medium
+    minutes: 35
+    skills: [sd.reliability.idempotency]
+links:
+  - title: AWS Builders' Library, Timeouts, retries and backoff with jitter
+    url: https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/
+  - title: Stripe API docs, Idempotent requests
+    url: https://docs.stripe.com/api/idempotent_requests

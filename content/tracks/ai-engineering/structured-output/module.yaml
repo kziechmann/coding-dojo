@@ -1,0 +1,27 @@
+id: structured-output
+track: ai-engineering
+order: 2
+title: Structured output
+summary: Get machine-readable JSON out of a model reliably - parse leniently, validate strictly, and repair with feedback.
+level: intermediate
+minutes: 50
+prerequisites: [llm-fundamentals]
+objectives:
+  - Parse JSON out of real model replies (code fences, surrounding prose).
+  - Validate structure and meaning, and feed specific errors back to the model in a bounded repair loop.
+  - Compare prompt-only JSON, schema-constrained output and tool calls with strict schemas.
+  - Treat model output as untrusted input everywhere it flows.
+skills:
+  - id: ai.structured-output
+    title: Structured output and validation
+    interview_weight: 0.8
+exercises:
+  - id: extract-with-retry
+    title: Extract with a repair loop
+    kind: code
+    difficulty: medium
+    minutes: 30
+    skills: [ai.structured-output]
+links:
+  - title: Anthropic docs, structured outputs
+    url: https://platform.claude.com/docs/en/build-with-claude/structured-outputs

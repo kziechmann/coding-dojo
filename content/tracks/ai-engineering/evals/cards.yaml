@@ -1,0 +1,41 @@
+- id: eval-parts
+  skill: ai.evals.harness
+  kind: recall
+  front: Name the four parts of an eval.
+  back: Labelled cases (with tags), the system under test called like production, graders, and a report (pass rate overall and per tag, failures, cost, latency).
+
+- id: grader-types
+  skill: ai.evals.harness
+  kind: compare
+  front: Exact match, rule checks, model-graded - when does each fit?
+  back: Exact match for extraction and classification; rule checks for properties like valid JSON or numbers matching the source; model-graded for subjective qualities, after calibrating the judge against human labels.
+
+- id: small-n
+  skill: ai.evals.statistics
+  kind: predict
+  front: Version A passes 24/30 cases and version B passes 25/30. Is B better?
+  back: Not shown. With 30 cases the 95% intervals are wide (about 63-91% for 24/30) and overlap heavily. Compare case by case and add cases.
+
+- id: case-by-case
+  skill: ai.evals.statistics
+  kind: design
+  front: The pass rate went from 82% to 83% after a prompt change. Why look at individual cases?
+  back: The net +1% can hide several regressions offset by fixes. List pass-to-fail and fail-to-pass cases and read the regressions.
+
+- id: wilson
+  skill: ai.evals.statistics
+  kind: recall
+  front: Why use a Wilson interval rather than p ± 1.96·sqrt(p(1−p)/n) for a pass rate?
+  back: The simple formula breaks near 0% and 100% and at small n (it can go below 0 or above 1 and is too narrow). Wilson stays in [0, 1] and behaves well at small n.
+
+- id: isolate-failures
+  skill: ai.evals.harness
+  kind: spot-the-bug
+  front: An eval run of 200 cases crashes at case 57 because the model call timed out. What should the harness do instead?
+  back: Catch per-case errors, record that case as a failure with the error, and continue. Optionally retry transient errors with backoff.
+
+- id: pin-versions
+  skill: ai.evals.harness
+  kind: recall
+  front: What must you pin for an eval result to be reproducible?
+  back: Model version, prompt version, sampling or effort settings, tool and retrieval versions, and the case set itself.

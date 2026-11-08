@@ -1,0 +1,27 @@
+# Uses the system-design round rubric (content/rubrics/rounds.yaml) with
+# problem-specific notes on what a 3 and a 4 look like here.
+round: system-design
+dimensions:
+  - id: requirements
+    three: Create, redirect, custom alias, stats; latency target and scale numbers agreed.
+    four: Also names out-of-scope items and that redirects (reads) drive the design.
+  - id: estimation
+    three: About 40 writes/s and 4,000 redirects/s on average (higher at peak); storage in the low TB over 5 years.
+    four: Concludes a cache must serve most redirects and that storage is small enough for one well-provisioned cluster.
+  - id: api_and_data
+    three: POST /links, GET /{code} with 301/302, stats endpoint; a table keyed by code.
+    four: Discusses 301 vs. 302, the uniqueness constraint for custom aliases, and idempotent link creation.
+  - id: architecture
+    three: Stateless API servers, a store keyed by code, a cache on the read path.
+    four: Separates the read and write paths and puts analytics on an async path.
+  - id: deep_dives
+    three: Explains one code-generation scheme and how collisions or coordination are handled.
+    four: Compares counter ranges vs. random codes, and covers hot links (cache, CDN) and multi-region reads.
+  - id: tradeoffs
+    three: Names trade-offs for code generation and the redirect status.
+    four: Covers failure modes (cache down, counter service down, abuse) with mitigations.
+probes:
+  - Two users shorten the same long URL. Same code or different, and why?
+  - Your counter service goes down. What happens to link creation, and how do you avoid that?
+  - One link goes viral at 200,000 redirects per second. Walk me through what happens.
+  - How would you stop people using the service to spread malware links?

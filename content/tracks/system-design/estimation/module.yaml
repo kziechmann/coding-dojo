@@ -1,0 +1,30 @@
+id: estimation
+track: system-design
+order: 1
+title: Back-of-envelope estimation
+summary: Turn product numbers into requests per second, storage and bandwidth in two minutes, so design choices rest on arithmetic.
+level: intro
+minutes: 45
+prerequisites: []
+objectives:
+  - Convert daily active users and actions per user into average and peak requests per second.
+  - Estimate storage growth and egress bandwidth from object sizes, retention and replication.
+  - Recall the latency orders of magnitude that decide whether a design needs a cache, a queue or a CDN.
+  - Say what the numbers imply for the design, not just the numbers.
+skills:
+  - id: sd.estimation
+    title: Capacity estimation
+    interview_weight: 0.8
+  - id: sd.latency-intuition
+    title: Latency and throughput intuition
+    interview_weight: 0.6
+exercises:
+  - id: capacity-calculator
+    title: Capacity calculator
+    kind: code
+    difficulty: easy
+    minutes: 20
+    skills: [sd.estimation]
+links:
+  - title: Hello Interview system design guides and practice
+    url: https://www.hellointerview.com

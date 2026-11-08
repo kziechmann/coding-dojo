@@ -1,0 +1,30 @@
+id: consistent-hashing
+track: system-design
+order: 4
+title: Partitioning and consistent hashing
+summary: Spread keys across servers so that adding or removing one moves only a small share of the data.
+level: intermediate
+minutes: 60
+prerequisites: [caching]
+objectives:
+  - Explain why hash(key) mod N reshuffles almost every key when N changes.
+  - Implement a hash ring with virtual nodes and binary-search lookups.
+  - Pick replicas for a key by walking the ring to distinct physical nodes.
+  - Compare hash partitioning with range partitioning and say when each fits.
+skills:
+  - id: sd.partitioning.consistent-hashing
+    title: Consistent hashing
+    interview_weight: 0.7
+  - id: sd.partitioning.strategies
+    title: Partitioning strategies and hot spots
+    interview_weight: 0.7
+exercises:
+  - id: hash-ring
+    title: Hash ring with virtual nodes
+    kind: code
+    difficulty: medium
+    minutes: 35
+    skills: [sd.partitioning.consistent-hashing]
+links:
+  - title: Consistent hashing (Wikipedia overview with references)
+    url: https://en.wikipedia.org/wiki/Consistent_hashing

@@ -1,0 +1,41 @@
+- id: rag-steps
+  skill: ai.retrieval.ranking
+  kind: recall
+  front: Name the five steps of a RAG pipeline.
+  back: Chunk, index, retrieve top k, (optionally) rerank, generate with citations.
+
+- id: chunk-size
+  skill: ai.retrieval.chunking
+  kind: compare
+  front: What goes wrong with chunks that are too small, and too large?
+  back: Too small - chunks lose the context that gives them meaning. Too large - relevance is diluted and context budget is wasted.
+
+- id: overlap
+  skill: ai.retrieval.chunking
+  kind: recall
+  front: Why overlap neighbouring chunks?
+  back: So a sentence or idea split at a boundary still appears whole in at least one chunk.
+
+- id: bm25-parts
+  skill: ai.retrieval.ranking
+  kind: recall
+  front: What three ideas make up BM25, and which parameters control two of them?
+  back: IDF (rare terms weigh more), saturating term frequency (k1), and document length normalization (b).
+
+- id: hybrid
+  skill: ai.retrieval.ranking
+  kind: compare
+  front: Why combine keyword and embedding search?
+  back: Keywords nail exact names, ids and jargon; embeddings catch paraphrases and synonyms. Hybrid (e.g. reciprocal rank fusion) covers both kinds of query.
+
+- id: recall-at-k
+  skill: ai.retrieval.evaluation
+  kind: recall
+  front: Define recall@k and say why it matters before prompt tuning.
+  back: The share of relevant chunks that appear in the top k results. If retrieval misses the answer, no prompt change can recover it.
+
+- id: saturation
+  skill: ai.retrieval.ranking
+  kind: predict
+  front: Does doubling how many times a query term appears in a document double its BM25 contribution?
+  back: No. Term frequency saturates - tf × (k1 + 1) / (tf + k1 × ...) approaches k1 + 1, so extra mentions add less and less.

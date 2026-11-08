@@ -1,0 +1,41 @@
+- id: token-rule
+  skill: ai.cost-latency
+  kind: recall
+  front: Rough rule of thumb for English tokens, and what breaks it?
+  back: About 4 characters or 0.75 words per token. Code, numbers and non-English text use more tokens per character - measure with the provider's counter.
+
+- id: window-includes-output
+  skill: ai.context-management
+  kind: spot-the-bug
+  front: Responses keep getting cut off mid-sentence even though the prompt fits in the context window. What's the likely bug?
+  back: No room was reserved for the output - the window covers input plus output. Reserve output tokens (and set max tokens accordingly).
+
+- id: cache-prefix
+  skill: ai.cost-latency
+  kind: spot-the-bug
+  front: Prompt caching is enabled but the cache hit rate is zero. The system prompt starts with "Current time - {now}". Why?
+  back: Caching is a prefix match. A timestamp at the start changes the prefix on every request, so nothing after it can be reused. Move volatile content to the end.
+
+- id: prompt-order
+  skill: ai.context-management
+  kind: recall
+  front: In what order should a prompt put stable and volatile content, and why?
+  back: Stable first (system prompt, tool definitions, reference documents), volatile last (user message, timestamps) - so the stable prefix can be cached, and the question sits closest to the answer.
+
+- id: latency-parts
+  skill: ai.cost-latency
+  kind: compare
+  front: Time to first token vs. output speed - what drives each?
+  back: Time to first token grows with input size (and drops with caching). Total time for long answers is dominated by output length divided by output tokens per second.
+
+- id: contiguous-history
+  skill: ai.context-management
+  kind: design
+  front: When trimming conversation history to fit, why keep a contiguous run of the newest messages rather than the most "important" ones?
+  back: Replies without the messages they answer confuse the model and can break role alternation. Keep the newest contiguous run, start it on a user turn, and summarize what you drop.
+
+- id: thinking-billing
+  skill: ai.cost-latency
+  kind: recall
+  front: How are reasoning ("thinking") tokens billed?
+  back: As output tokens, which cost more than input - so higher effort settings raise both latency and cost. Use them where evals show they help.

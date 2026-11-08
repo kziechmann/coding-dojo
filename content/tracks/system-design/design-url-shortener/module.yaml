@@ -1,0 +1,30 @@
+id: design-url-shortener
+track: system-design
+order: 10
+title: "Design: URL shortener"
+summary: The classic warm-up design, done end to end - requirements, estimates, API, data model, architecture and deep dives - and graded on a rubric.
+level: intermediate
+minutes: 60
+prerequisites: [estimation, caching]
+objectives:
+  - Run a full design interview structure in 45 minutes.
+  - Choose and defend a short-code generation scheme (counter with base62, random, or hash) and its collision story.
+  - Design a read path that serves redirects in milliseconds at 100k+ reads per second.
+  - Handle analytics without slowing down redirects.
+skills:
+  - id: sd.design.url-shortener
+    title: "Design: URL shortener"
+    interview_weight: 0.8
+  - id: sd.design.process
+    title: Design interview process
+    interview_weight: 0.9
+exercises:
+  - id: url-shortener
+    title: Design a URL shortener
+    kind: design
+    difficulty: medium
+    minutes: 45
+    skills: [sd.design.url-shortener, sd.design.process]
+links:
+  - title: Hello Interview problem breakdowns (search for the Bitly design)
+    url: https://www.hellointerview.com

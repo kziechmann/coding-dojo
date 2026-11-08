@@ -1,0 +1,32 @@
+id: agent-loop
+track: ai-engineering
+order: 3
+title: The agent loop
+summary: Build the loop at the heart of every agent - model calls tools, tools return results, repeat - with parallel tools, errors and limits handled.
+level: intermediate
+minutes: 60
+prerequisites: [structured-output]
+objectives:
+  - Implement a tool-use loop with the message shapes real APIs use (tool_use and tool_result blocks).
+  - Run independent tool calls in parallel and return all results in one message.
+  - Report tool failures to the model as errors it can recover from, instead of crashing.
+  - Bound an agent with turn limits and explain when a workflow beats an agent.
+skills:
+  - id: ai.agents.tool-loop
+    title: Agent tool loop
+    interview_weight: 0.9
+  - id: ai.agents.design
+    title: Agent design and guardrails
+    interview_weight: 0.8
+exercises:
+  - id: tool-loop
+    title: Tool-use loop
+    kind: code
+    difficulty: medium
+    minutes: 35
+    skills: [ai.agents.tool-loop, ai.agents.design]
+links:
+  - title: Anthropic, Building effective agents
+    url: https://www.anthropic.com/engineering/building-effective-agents
+  - title: Anthropic docs, tool use
+    url: https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview

@@ -1,0 +1,35 @@
+- id: modulo-reshuffle
+  skill: sd.partitioning.consistent-hashing
+  kind: predict
+  front: You go from 10 to 11 cache servers. Roughly what share of keys move with hash % N? With a consistent-hash ring?
+  back: About 91% (10/11) with modulo; about 9% (1/11) with a ring.
+
+- id: virtual-nodes
+  skill: sd.partitioning.consistent-hashing
+  kind: recall
+  front: What problem do virtual nodes solve, and what else do they make easy?
+  back: They even out the uneven arcs that one point per server creates. They also let a bigger server take a bigger share by getting more points.
+
+- id: ring-lookup
+  skill: sd.partitioning.consistent-hashing
+  kind: complexity
+  front: What is the lookup cost on a ring with V sorted points, and how?
+  back: O(log V), by binary searching for the first point at or after the key's hash (wrapping to index 0 past the end).
+
+- id: replicas-distinct
+  skill: sd.partitioning.consistent-hashing
+  kind: spot-the-bug
+  front: To place 3 replicas, code takes the next 3 points clockwise on the ring. What's the bug?
+  back: Several of those points can be virtual nodes of the same server, so two replicas land on one machine. Skip until you have 3 distinct physical servers.
+
+- id: range-vs-hash
+  skill: sd.partitioning.strategies
+  kind: compare
+  front: Range partitioning vs. hash partitioning - one strength and one weakness each.
+  back: Range - efficient range scans; hot spots on sequential or popular keys. Hash - even spread; range queries must hit every partition.
+
+- id: hot-key
+  skill: sd.partitioning.strategies
+  kind: design
+  front: One key (a viral post) gets 50x the traffic of any other and overloads its partition. Name two fixes.
+  back: Cache it widely (including at the edge), replicate it to several owners, or split it into sub-keys with a suffix and merge on read.

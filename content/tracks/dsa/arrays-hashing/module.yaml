@@ -1,0 +1,37 @@
+id: arrays-hashing
+track: dsa
+order: 1
+title: Arrays and hashing
+summary: Trade memory for time with hash maps and sets - the pattern behind a third of easy and medium interview problems.
+level: intro
+minutes: 50
+prerequisites: []
+objectives:
+  - Spot when a hash map turns an O(n²) search into O(n).
+  - Choose a good key (sorted letters, counts, a tuple) to group equivalent items.
+  - Count frequencies and pick the top k without sorting everything.
+skills:
+  - id: dsa.hashing
+    title: Hash maps and sets
+    interview_weight: 0.9
+  - id: dsa.counting
+    title: Counting and bucket sort
+    interview_weight: 0.7
+exercises:
+  - id: group-anagrams
+    title: Group anagrams
+    kind: code
+    difficulty: medium
+    minutes: 20
+    skills: [dsa.hashing]
+  - id: top-k-frequent
+    title: Top k frequent elements
+    kind: code
+    difficulty: medium
+    minutes: 20
+    skills: [dsa.counting, dsa.hashing]
+links:
+  - title: LeetCode 49, Group Anagrams
+    url: https://leetcode.com/problems/group-anagrams/
+  - title: LeetCode 347, Top K Frequent Elements
+    url: https://leetcode.com/problems/top-k-frequent-elements/

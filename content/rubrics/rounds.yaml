@@ -1,0 +1,138 @@
+# Rubrics for /mock rounds and for grading design exercises.
+# Every dimension is scored 1-4. The tutor quotes the descriptor it used.
+# Signal: average >= 3.5 strong hire, >= 3.0 hire, >= 2.5 lean hire, >= 2.0 lean no hire, else no hire.
+
+dsa:
+  minutes: 45
+  setup: 1-2 problems, no AI, think aloud, timer visible. Each hint costs points.
+  dimensions:
+    - id: approach
+      1: Starts coding without a plan, or the plan cannot work.
+      2: Finds a working approach only after hints.
+      3: Finds a working approach and names the pattern.
+      4: Compares two approaches and picks one with a clear reason.
+    - id: correctness
+      1: Fails most tests.
+      2: Main case works; edge cases fail.
+      3: All tests pass after one or two fixes.
+      4: All tests pass first time; edge cases raised before coding.
+    - id: complexity
+      1: Cannot state time or space complexity.
+      2: States it incorrectly, corrects with help.
+      3: States both correctly.
+      4: States both and explains which line dominates and why.
+    - id: code_quality
+      1: Hard to follow.
+      2: Works but tangled names or duplicated logic.
+      3: Clear names and structure.
+      4: Clear, small helpers, would pass code review as is.
+    - id: communication
+      1: Silent for long stretches.
+      2: Explains when asked.
+      3: Narrates the plan and the current hypothesis.
+      4: Drives the conversation; checks in at decision points.
+
+system-design:
+  minutes: 50
+  setup: Prompt from the interviewer, a whiteboard or design doc, pushback on scale and failure.
+  dimensions:
+    - id: requirements
+      1: Jumps into boxes without asking anything.
+      2: Lists features but no scale or non-functional requirements.
+      3: Functional and non-functional requirements, scale numbers agreed.
+      4: Also states what is out of scope and the one or two properties that drive the design.
+    - id: estimation
+      1: No numbers.
+      2: Numbers with arithmetic errors or no use.
+      3: QPS, storage and bandwidth estimated and correct to an order of magnitude.
+      4: Numbers drive decisions (e.g. "200k reads/s means we need a cache tier").
+    - id: api_and_data
+      1: No API or data model.
+      2: Endpoints or tables listed without keys, access patterns or types.
+      3: Clean API and data model that fit the access patterns.
+      4: Also covers pagination, idempotency and how the schema evolves.
+    - id: architecture
+      1: Missing core components.
+      2: Components present but data flow unclear.
+      3: Clear high-level design that meets the requirements.
+      4: Clear design that is also the simplest thing that works.
+    - id: deep_dives
+      1: Cannot go deeper when asked.
+      2: Goes deeper with heavy prompting.
+      3: Handles the interviewer's deep dives.
+      4: Picks the riskiest part and goes deep unprompted.
+    - id: tradeoffs
+      1: Presents one option as the only one.
+      2: Names trade-offs when asked.
+      3: Weighs alternatives for the main decisions.
+      4: Ties each trade-off back to a stated requirement, and names failure modes and mitigations.
+
+ai-assisted:
+  minutes: 60
+  setup: A small repo, a feature request and a coding agent. The agent is allowed; how you use it is graded.
+  dimensions:
+    - id: specification
+      1: Vague prompts; accepts whatever comes back.
+      2: Prompts improve after failures.
+      3: Gives the agent a clear spec, constraints and acceptance criteria up front.
+      4: Splits the task into verifiable steps and sequences them well.
+    - id: verification
+      1: Merges output without reading or running it.
+      2: Runs it, misses defects.
+      3: Reads diffs, runs tests, catches the agent's main mistakes.
+      4: Adds tests that would have caught the agent's mistakes.
+    - id: design
+      1: Accepts a poor design.
+      2: Notices problems but doesn't fix them.
+      3: Steers toward a sound design.
+      4: Final design is simpler than what the agent first proposed.
+    - id: communication
+      1: Can't explain what the code does.
+      2: Explains it when asked.
+      3: Explains choices and what was rejected.
+      4: Explains risks and what they'd check in production.
+
+behavioral:
+  minutes: 30
+  setup: Questions drawn from the story bank, with follow-ups that probe the learner's own part.
+  dimensions:
+    - id: structure
+      1: Rambles; no clear arc.
+      2: Situation is clear, the rest is fuzzy.
+      3: Situation, task, action, result all clear.
+      4: Clear and tight, under three minutes.
+    - id: ownership
+      1: "We" throughout; own role unclear.
+      2: Own role clear only after follow-ups.
+      3: Own decisions and actions are clear.
+      4: Also owns mistakes and what changed afterwards.
+    - id: impact
+      1: No outcome.
+      2: Outcome without numbers.
+      3: Measurable outcome.
+      4: Measurable outcome plus what it unlocked for others.
+    - id: reflection
+      1: None.
+      2: Generic lesson.
+      3: Specific lesson.
+      4: Specific lesson and evidence it was applied later.
+
+code-review:
+  minutes: 30
+  setup: A pull request with planted bugs and design smells.
+  dimensions:
+    - id: defects_found
+      1: Misses the critical bug.
+      2: Finds the critical bug only.
+      3: Finds most planted issues.
+      4: Finds all planted issues plus a real one we didn't plant.
+    - id: severity
+      1: Treats nits and bugs the same.
+      2: Some prioritization.
+      3: Clear blocking vs. non-blocking.
+      4: Explains the user impact of each blocking issue.
+    - id: tone
+      1: Harsh or vague.
+      2: Neutral but unclear.
+      3: Specific and kind.
+      4: Specific, kind, and suggests concrete fixes.
